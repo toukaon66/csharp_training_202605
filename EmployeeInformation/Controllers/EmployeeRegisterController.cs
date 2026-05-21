@@ -1,8 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using csharp_training_202605.EmployeeInformation.Models;
+using Csharp_training_202605.Models;
 
-namespace csharp_training_202605.Controllers;
+namespace Csharp_training_202605.Controllers;
 
 public class EmployeeRegisterController : Controller
 {

@@ -1,5 +1,5 @@
-using csharp_training_202605.Exceptions;
-namespace csharp_training_202605.Applications.Domains;
+using Csharp_training_202605.Exceptions;
+namespace Csharp_training_202605.Applications.Domains;
 /// <summary>
 /// 従業員を表すドメインオブジェクト
 /// </summary>
@@ -7,7 +7,6 @@ public class Employee
 {
     public int? Id { get; private set; } // 社員Id
     public string Name { get; private set; } = string.Empty; // 氏名
-    public string Email{get; private set;}//メールアドレス
     public Department? Department { get; private set; } // 所属部署（null可）
 
     private const int MaxLength = 20;
@@ -17,14 +16,12 @@ public class Employee
     /// </summary>
     /// <param name="id">社員Id</param>
     /// <param name="name">氏名</param>
-    /// <param name="email">メールアドレス</param>
     /// <param name="department">所属部署</param>
-    public Employee(int? id, string name, string email, Department? department)
+    public Employee(int? id, string name, Department? department)
     {
         ValidateName(name);
         Id = id;
         Name = name;
-        Email = email;
         Department = department;
     }
 
@@ -33,8 +30,8 @@ public class Employee
     /// </summary>
     /// <param name="name">氏名</param>
     /// <param name="department">所属部署</param>
-    public Employee(string name, string email, Department? department)
-        : this(null, name, email, department) { }
+    public Employee(string name, Department? department)
+        : this(null, name, department) { }
 
     /// <summary>
     /// 氏名の検証
@@ -55,22 +52,6 @@ public class Employee
         ValidateName(name);
         Name = name;
     }
-
-
-private void ValidateEmail(string email)
-    {
-        if (string.IsNullOrWhiteSpace(email))
-            throw new DomainException("メールアドレスは必須です");
-        if (email.Length > MaxLength)
-            throw new DomainException($"メールアドレスは{MaxLength}文字以内で入力してください");
-    }
-
-    public void ChangeEmail(string email)
-    {
-        ValidateEmail(email);
-        Email = email;
-    }
-
 
     /// <summary>
     /// 所属部署を変更する

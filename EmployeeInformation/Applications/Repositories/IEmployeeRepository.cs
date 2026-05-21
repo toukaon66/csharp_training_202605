@@ -1,5 +1,5 @@
-using csharp_training_202605.Applications.Domains;   
-namespace csharp_training_202605.Applications.Repositories;
+using Csharp_training_202605.Applications.Domains;   
+namespace Csharp_training_202605.Applications.Repositories;
 /// <summary>
 /// ドメインオブジェクト:従業員のCRUD操作インターフェイス
 /// </summary>

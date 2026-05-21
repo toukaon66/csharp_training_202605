@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using csharp_training_202605.Applications.Domains;
-namespace csharp_training_202605.Presentations.ViewModels;
+using Csharp_training_202605.Applications.Domains;
+namespace Csharp_training_202605.Presentations.ViewModels;
 /// <summary>
 /// 部署登録ViewModelクラス
 /// </summary>
@@ -13,21 +13,12 @@ public class EmployeeRegisterViewModel
     [Display(Name = "氏名")]
     [Required(ErrorMessage = "{0}は入力必須です。")]
     public string? Name { get; set; } = string.Empty;
-
-    /// <summary>
-    /// メールアドレス
-    /// </summary>
-    [Display(Name = "メールアドレス")]
-    [Required(ErrorMessage = "{0}は入力必須です。")]
-    public string? Email { get; set; } = string.Empty;
     /// <summary>
     /// 所属部署
     /// </summary>
     [Display(Name = "所属部署")]
     [Required(ErrorMessage = "{0}は選択必須です。")]
     public int? DeptId { get; set; } = 0;
-
-   
 
     /// <summary>
     /// 選択された部署名
@@ -57,7 +48,6 @@ public class EmployeeRegisterViewModel
     }
     // 部署のリスト
     public List<SelectListItem>? Departments { get; set; } = null;
-    public object Email { get; internal set; }
 
     public override string ToString()
     {

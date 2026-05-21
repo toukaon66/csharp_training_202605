@@ -1,4 +1,4 @@
-namespace csharp_training_202605.Applications.Adapters;
+namespace Csharp_training_202605.Applications.Adapters;
 /// <summary>
 /// TDomainに指定されたドメインオブジェクトをTTargetに指定されたクラスに変換するインターフェイス
 /// </summary>

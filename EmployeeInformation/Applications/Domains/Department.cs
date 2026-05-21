@@ -1,5 +1,5 @@
-using csharp_training_202605.Exceptions;
-namespace csharp_training_202605.Applications.Domains;
+using Csharp_training_202605.Exceptions;
+namespace Csharp_training_202605.Applications.Domains;
 /// <summary>
 /// 所属部署を表すドメインオブジェクト
 /// </summary>

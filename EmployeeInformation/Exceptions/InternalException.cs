@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace csharp_training_202605.Exceptions;
+namespace Csharp_training_202605.Exceptions;
 /// <summary>
 /// 内部エラーを表す例外クラス
 /// データベース停止や不正なデータアクセスなど

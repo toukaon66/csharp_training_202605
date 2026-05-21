@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("EmployeeInformation")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Csharp_training_202605")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+de83999932a84e1b3262b8b055a28f0841773b1a")]
-[assembly: System.Reflection.AssemblyProductAttribute("EmployeeInformation")]
-[assembly: System.Reflection.AssemblyTitleAttribute("EmployeeInformation")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8f51c0f8a9c9605daaadc6de9c9a3452da1e8c40")]
+[assembly: System.Reflection.AssemblyProductAttribute("Csharp_training_202605")]
+[assembly: System.Reflection.AssemblyTitleAttribute("Csharp_training_202605")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // MSBuild WriteCodeFragment クラスによって生成されました。

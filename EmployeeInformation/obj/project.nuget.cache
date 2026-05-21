@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fL/eESShyp8=",
+  "dgSpecHash": "M6OMjy848rc=",
   "success": true,
-  "projectFilePath": "/home/fullness/CS_Training/csharp_training_202605/EmployeeInformation/EmployeeInformation.csproj",
+  "projectFilePath": "/home/fullness/CS_Training/WebApp/Csharp_training_202605/Csharp_training_202605.csproj",
   "expectedPackageFiles": [
     "/home/fullness/.nuget/packages/microsoft.entityframeworkcore/8.0.0/microsoft.entityframeworkcore.8.0.0.nupkg.sha512",
     "/home/fullness/.nuget/packages/microsoft.entityframeworkcore.abstractions/8.0.0/microsoft.entityframeworkcore.abstractions.8.0.0.nupkg.sha512",

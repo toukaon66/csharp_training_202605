@@ -1,9 +1,9 @@
-using csharp_training_202605.Infrastructures.Context;
-using csharp_training_202605.Applications.Domains;
-using csharp_training_202605.Applications.Repositories;
-using csharp_training_202605.Infrastructures.Adapters;
-using csharp_training_202605.Exceptions;
-namespace csharp_training_202605.Infrastructures.Repositories;
+using Csharp_training_202605.Infrastructures.Context;
+using Csharp_training_202605.Applications.Domains;
+using Csharp_training_202605.Applications.Repositories;
+using Csharp_training_202605.Infrastructures.Adapters;
+using Csharp_training_202605.Exceptions;
+namespace Csharp_training_202605.Infrastructures.Repositories;
 /// <summary>
 /// ドメインオブジェクト:従業員のCRUD操作インターフェイスの実装
 /// </summary>

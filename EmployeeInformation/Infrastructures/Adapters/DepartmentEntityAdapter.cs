@@ -1,7 +1,7 @@
-using csharp_training_202605.Applications.Adapters;
-using csharp_training_202605.Applications.Domains;
-using csharp_training_202605.Infrastructures.Entities;
-namespace csharp_training_202605.Infrastructures.Adapters;
+using Csharp_training_202605.Applications.Adapters;
+using Csharp_training_202605.Applications.Domains;
+using Csharp_training_202605.Infrastructures.Entities;
+namespace Csharp_training_202605.Infrastructures.Adapters;
 /// <summary>
 /// ドメインオブジェクト:DepartmentとDepartmentEntityの相互変換インターフェイスの実装
 /// </summary>

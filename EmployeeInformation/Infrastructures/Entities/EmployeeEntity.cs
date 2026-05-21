@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-namespace csharp_training_202605.Infrastructures.Entities;
+namespace Csharp_training_202605.Infrastructures.Entities;
 /// <summary>
 /// 従業員テーブル(employee)を扱うEntity Framework Coreのエンティティクラス
 /// </summary>
@@ -18,12 +18,6 @@ public class EmployeeEntity
     /// 従業員名
     /// </summary>
     public string EmpName { get; set; } = string.Empty;
-
-    [Column("email")]
-    /// <summary>
-    /// 従業員名
-    /// </summary>
-    public string EmpEmail { get; set; } = string.Empty;
     /// <summary>
     /// 所属部署Id(外部キー)
     /// </summary>

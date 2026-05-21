@@ -1,5 +1,5 @@
-using csharp_training_202605.Exceptions;
-namespace WebAppcsharp_training_202605_Sample.Presentations.Middlewares;
+using Csharp_training_202605.Exceptions;
+namespace Csharp_training_202605.Presentations.Middlewares;
 /// <summary>
 /// IngternalExceptionをハンドリングするミドルウェア
 /// </summary>

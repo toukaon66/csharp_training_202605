@@ -1,6 +1,6 @@
-using csharp_training_202605.Applications.Adapters;
-using csharp_training_202605.Applications.Domains;
-namespace csharp_training_202605.Presentations.ViewModels;
+using Csharp_training_202605.Applications.Adapters;
+using Csharp_training_202605.Applications.Domains;
+namespace Csharp_training_202605.Presentations.ViewModels;
 /// <summary>
 /// EmployeeRegisterViewModel(従業員登録ViewModel)を
 /// ドメインオブジェクト:Employeeに変換するアダプターインターフェイスの実装
@@ -19,7 +19,7 @@ public class EmployeeRegisterViewModelAdapter : IRestorer<Employee, EmployeeRegi
         // Department(部署)を作成する
         var department = new Department(target.DeptId!.Value,target.DeptName);
         // 登録するEmployee(従業員)を作成する
-        var employee = new Employee(target.Name!, target.Email!,department);
+        var employee = new Employee(target.Name!, department);
         return employee;
     }
 }

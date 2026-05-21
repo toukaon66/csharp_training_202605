@@ -1,7 +1,7 @@
-using csharp_training_202605.Applications.Adapters;
-using csharp_training_202605.Applications.Domains;
-using csharp_training_202605.Infrastructures.Entities;
-namespace csharp_training_202605.Infrastructures.Adapters;
+using Csharp_training_202605.Applications.Adapters;
+using Csharp_training_202605.Applications.Domains;
+using Csharp_training_202605.Infrastructures.Entities;
+namespace Csharp_training_202605.Infrastructures.Adapters;
 /// <summary>
 /// ドメインオブジェクト:EmployeeとEmployeeEntityの相互変換インターフェイスの実装
 /// </summary>
@@ -20,13 +20,8 @@ IConverter<Employee, EmployeeEntity>, IRestorer<Employee, EmployeeEntity>
         var entity = new EmployeeEntity{
             EmpName = domain.Name
         };
-        if (domain.Id != null)
-        {
+        if (domain.Id != null){
             entity.EmpId = domain.Id.Value;
-        }
-        if (domain.Email != null)
-        {
-            entity.EmpEmail = domain.Email;
         }
         if (domain.Department != null)
         {
@@ -45,7 +40,6 @@ IConverter<Employee, EmployeeEntity>, IRestorer<Employee, EmployeeEntity>
         var employee = new Employee(
             target.EmpId,
             target.EmpName,
-            target.EmpEmail,
             null
         );
         return employee;

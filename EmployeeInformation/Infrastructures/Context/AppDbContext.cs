@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using csharp_training_202605.Infrastructures.Entities;
-namespace csharp_training_202605.Infrastructures.Context;
+using Csharp_training_202605.Infrastructures.Entities;
+namespace Csharp_training_202605.Infrastructures.Context;
 /// <summary>
 /// DbContext継承クラス
 /// </summary>

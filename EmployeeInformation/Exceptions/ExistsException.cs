@@ -1,4 +1,4 @@
-namespace csharp_training_202605.Exceptions;
+namespace Csharp_training_202605.Exceptions;
 /// <summary>
 /// データが存在することを表す例外クラス
 /// </summary>

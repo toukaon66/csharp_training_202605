@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-namespace csharp_training_202605.Infrastructures.Entities;
+namespace Csharp_training_202605.Infrastructures.Entities;
 /// <summary>
 /// 部署テーブル(department)を扱うEntity Framework Coreのエンティティクラス
 /// </summary>

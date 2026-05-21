@@ -1,4 +1,4 @@
-namespace csharp_training_202605.EmployeeInformation.Models;
+namespace Csharp_training_202605.Models;
 
 public class ErrorViewModel
 {

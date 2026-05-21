@@ -1,9 +1,17 @@
+using Csharp_training_202605.Presentations.Extensions;
+using Csharp_training_202605.Presentations.Middlewares;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// ControllerやViewの依存関係を構築する
 builder.Services.AddControllersWithViews();
 
+builder.Services.SettingDependencyInjection(builder.Configuration);
+
 var app = builder.Build();
+
+app.UseMiddleware<InternalExceptionLoggingMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
