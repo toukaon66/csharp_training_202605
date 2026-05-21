@@ -716,11 +716,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/fullness/CS_Training/WebApp/Csharp_training_202605/Csharp_training_202605.csproj",
-      "projectName": "Csharp_training_202605",
-      "projectPath": "/home/fullness/CS_Training/WebApp/Csharp_training_202605/Csharp_training_202605.csproj",
+      "projectUniqueName": "/home/fullness/CS_Training/csharp_training_202605/EmployeeInformation/WebApp_Sample.csproj",
+      "projectName": "WebApp_Sample",
+      "projectPath": "/home/fullness/CS_Training/csharp_training_202605/EmployeeInformation/WebApp_Sample.csproj",
       "packagesPath": "/home/fullness/.nuget/packages/",
-      "outputPath": "/home/fullness/CS_Training/WebApp/Csharp_training_202605/obj/",
+      "outputPath": "/home/fullness/CS_Training/csharp_training_202605/EmployeeInformation/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/fullness/.nuget/NuGet/NuGet.Config"
