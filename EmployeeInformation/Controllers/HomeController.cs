@@ -1,6 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using EmployeeInformation.Models;
+using csharp_training_202605.EmployeeInformation.Models;
 
 namespace EmployeeInformation.Controllers;
 
@@ -17,11 +17,18 @@ public class HomeController : Controller
     {
         return View();
     }
+//     [HttpGet("Enter")]
+//    public IActionResult Enter()
+//     {
+//         return View();
+//     }
 
     public IActionResult Privacy()
     {
         return View();
     }
+
+    
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
