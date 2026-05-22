@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Csharp_training_202605.Applications.Services;
 using Csharp_training_202605.Presentations.ViewModels;
+using Microsoft.Extensions.Logging;
 namespace Csharp_training_202605.Presentations.Controllers;
 /// <summary>
 /// 従業員登録コントローラ

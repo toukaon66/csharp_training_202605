@@ -5,29 +5,21 @@ using Microsoft.Extensions.Logging;
 
 namespace Csharp_training_202605.Controllers;
 
-public class EmployeeRegisterController : Controller
+public class DepartmentRegisterController : Controller
 {
     private readonly ILogger<EmployeeRegisterController> _logger;
 
-    public EmployeeRegisterController(ILogger<EmployeeRegisterController> logger)
+    public DepartmentRegisterController(ILogger<EmployeeRegisterController> logger)
     {
         _logger = logger;
     }
+
     public IActionResult Enter()
     {
         return View();
     }
 
-    public IActionResult Confirm()
-    {
-        return View();
-    }
-    public IActionResult Complete()
-    {
-        return View();
-    }
 
-    
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

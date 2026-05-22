@@ -23,12 +23,20 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <!-- Homeリンク（HomeControllerのIndexアクション） -->
+                           
+                           <a class="nav-link text-dark" asp-area="" asp-controller="EmployeeList" asp-action="Enter">社員情報一覧</a>
+                        </li>
+                        <li class="nav-item">
+                           
                             <a class="nav-link text-dark" asp-area="" asp-controller="EmployeeRegister" asp-action="Enter">社員情報登録</a>
                         </li>
                         <li class="nav-item">
-                            <!-- Privacyリンク（HomeControllerのPrivacyアクション） -->
                            
+                           <a class="nav-link text-dark" asp-area="" asp-controller="DepartmentList" asp-action="Enter">部署情報一覧</a>
+                        </li>
+                        <li class="nav-item">
+                            
+                           <a class="nav-link text-dark" asp-area="" asp-controller="DepartmentRegister" asp-action="Enter">部署登録</a>
                         </li>
                     </ul>
                 </div>

@@ -1,12 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Csharp_training_202605.Applications.Domains;
+using System.Collections.Generic;
 namespace Csharp_training_202605.Presentations.ViewModels;
 
 public class DepartmentListViewModel
 {
     [Display(Name = "部署名")]
-    public string? Name { get; set; } = string.Empty;
+    public string? DeptName { get; set; } = string.Empty;
 
      [Display(Name = "部署番号")]
     public int? DeptId { get; set; } = 0;
@@ -27,5 +28,12 @@ public class DepartmentListViewModel
             }
         }
         Departments = selectItems;
+    }
+
+    public List<SelectListItem>? Departments { get; set; } = null;
+
+    public override string ToString()
+    {
+        return $" DeptId={DeptId} , DeptName={DeptName} , Departments={Departments}";
     }
 }

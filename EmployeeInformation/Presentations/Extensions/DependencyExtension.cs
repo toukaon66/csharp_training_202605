@@ -7,6 +7,8 @@ using Csharp_training_202605.Infrastructures.Context;
 using Csharp_training_202605.Infrastructures.Repositories;
 using Csharp_training_202605.Presentations.Controllers;
 using Csharp_training_202605.Presentations.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
 namespace Csharp_training_202605.Presentations.Extensions;
 /// <summary>
 /// 依存定義および依存性注入クラス
