@@ -1,5 +1,6 @@
 using Csharp_training_202605.Applications.Domains;
 namespace Csharp_training_202605.Applications.Services;
+
 /// <summary>
 /// 従業員登録サービスインターフェイス
 /// </summary>
