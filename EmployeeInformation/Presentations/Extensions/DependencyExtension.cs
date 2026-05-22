@@ -57,6 +57,8 @@ public static class DependencyExtension
         services.AddScoped<DepartmentEntityAdapter>();
         // ドメインモデル:従業員と従業員エンティティの相互変換インターフェイスの実装
         services.AddScoped<EmployeeEntityAdapter>();
+        services.AddScoped<DepartmentRegisterViewModelAdapter>();
+
         // ドメインオブジェクト:部署のCRUD操作インターフェイス実装
         services.AddScoped<IDepartmentRepository, DepartmentRepository>();
         // ドメインオブジェクト:従業員のCRUD操作インターフェイスの実装
@@ -71,6 +73,7 @@ public static class DependencyExtension
     {
         // 従業員登録サービスインターフェイスの実装
         services.AddScoped<IEmployeeRegisterService, EmployeeRegisterService>();
+        services.AddScoped<IDepartmentRegisterService, DepartmentRegisterService>();
     }
 
     /// <summary>
@@ -86,6 +89,11 @@ public static class DependencyExtension
         services.AddScoped(
             provider =>
             new TempDataStore<EmployeeRegisterViewModel>("EmployeeRegisterViewModel")
+        );
+
+         services.AddScoped(
+            provider =>
+            new TempDataStore<DepartmentRegisterViewModel>("DepartmentRegisterViewModel")
         );
     }
 }

@@ -2,7 +2,7 @@ using Csharp_training_202605.Applications.Repositories;
 using Csharp_training_202605.Applications.Domains;
 using Csharp_training_202605.Exceptions;
 using Csharp_training_202605.Infrastructures.Context;
-using csharp_training_202605.Applications.Services;
+using Csharp_training_202605.Applications.Services;
 namespace Csharp_training_202605.Applications.Services.Impls;
 /// <summary>
 /// 従業員登録サービスインターフェイスの実装

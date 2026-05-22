@@ -12,6 +12,7 @@ public class EmployeeRegisterViewModel
     /// 氏名
     /// </summary>
     [Display(Name = "氏名")]
+    [StringLength(20, ErrorMessage = "氏名は20文字以内で入力してください")]
     [Required(ErrorMessage = "{0}は入力必須です。")]
     public string? Name { get; set; } = string.Empty;
     /// <summary>
@@ -25,7 +26,7 @@ public class EmployeeRegisterViewModel
     /// 選択された部署名
     /// </summary>
     [Display(Name = "部署名")]
-    public string? DeptName { get; set; } = string.Empty;
+        public string? DeptName { get; set; } = string.Empty;
 
     /// <summary>
     /// 部署のリストをSelectListItemのリストに変換してプロパティに設定する

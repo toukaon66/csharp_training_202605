@@ -40,8 +40,8 @@ public class Employee
     {
         if (string.IsNullOrWhiteSpace(name))
             throw new DomainException("氏名は必須です");
-        if (name.Length > MaxLength)
-            throw new DomainException($"氏名は{MaxLength}文字以内で入力してください");
+        if (name.Length > 20)
+            throw new DomainException($"氏名は20文字以内で入力してください");
     }
 
     /// <summary>

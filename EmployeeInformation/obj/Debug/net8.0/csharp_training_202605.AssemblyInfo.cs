@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("WebApp_Sample")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Csharp_training_202605")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+de5dfa461b8a747730d8c1b227ad1f08b234e42b")]
-[assembly: System.Reflection.AssemblyProductAttribute("WebApp_Sample")]
-[assembly: System.Reflection.AssemblyTitleAttribute("WebApp_Sample")]
+[assembly: System.Reflection.AssemblyProductAttribute("Csharp_training_202605")]
+[assembly: System.Reflection.AssemblyTitleAttribute("Csharp_training_202605")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // MSBuild WriteCodeFragment クラスによって生成されました。
