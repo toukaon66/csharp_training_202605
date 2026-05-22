@@ -3,6 +3,9 @@ using Csharp_training_202605.Applications.Domains;
 using Csharp_training_202605.Applications.Repositories;
 using Csharp_training_202605.Infrastructures.Adapters;
 using Csharp_training_202605.Exceptions;
+using System.Collections.Generic;
+using System.Linq;
+using System;
 namespace Csharp_training_202605.Infrastructures.Repositories;
 /// <summary>
 /// ドメインオブジェクト:部署のCRUD操作インターフェイス実装

@@ -3,6 +3,7 @@ using Csharp_training_202605.Applications.Domains;
 using Csharp_training_202605.Applications.Repositories;
 using Csharp_training_202605.Infrastructures.Adapters;
 using Csharp_training_202605.Exceptions;
+using System;
 namespace Csharp_training_202605.Infrastructures.Repositories;
 /// <summary>
 /// ドメインオブジェクト:従業員のCRUD操作インターフェイスの実装
