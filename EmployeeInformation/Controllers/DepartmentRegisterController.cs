@@ -25,7 +25,7 @@ public class DepartmentRegisterController : Controller
     /// <summary>
     /// TempDataを通じて一時的にViewModelを保存・復元するためのクラス
     /// </summary>
-    private readonly  TempDataStore<DepartmentRegisterViewModel> _empDataStore;
+    private readonly  TempDataStore<DepartmentRegisterViewModel> _deptDataStore;
 
     /// <summary>
     /// コンストラクタ
@@ -38,12 +38,12 @@ public class DepartmentRegisterController : Controller
         ILogger<DepartmentRegisterController> logger,
         IDepartmentRegisterService departmentRegisterService,
         DepartmentRegisterViewModelAdapter departmentRegisterViewModelAdapter,
-        TempDataStore<DepartmentRegisterViewModel> empDataStore)
+        TempDataStore<DepartmentRegisterViewModel> deptDataStore)
     {
         _logger = logger;
         _departmentRegisterService = departmentRegisterService;
         _adapter = departmentRegisterViewModelAdapter;
-        _empDataStore = empDataStore;
+        _deptDataStore = deptDataStore;
     }
 
     /// <summary>
@@ -56,7 +56,7 @@ public class DepartmentRegisterController : Controller
         DepartmentRegisterViewModel? viewModel = null;
         // [戻る]ボタンへの対応
         // TempDataからEmployeeRegisterViewModelを取得する
-        viewModel = _empDataStore.Load(this);
+        viewModel = _deptDataStore.Load(this);
         if (viewModel   == null)
         {
             // 従業員登録ViewModelを生成する
@@ -95,7 +95,7 @@ public class DepartmentRegisterController : Controller
     public IActionResult Register(DepartmentRegisterViewModel viewModel)
     {
         // EmployeeRegisterViewModelをシリアライズして、TempDataに保存する
-        _empDataStore.Save(this, viewModel);
+        _deptDataStore.Save(this, viewModel);
         // 登録処理GETアクションメソッドにリダイレクトする
         return RedirectToAction("Complete");
     }
@@ -110,16 +110,16 @@ public class DepartmentRegisterController : Controller
     {
         DepartmentRegisterViewModel? viewModel = null;
         // TempDataからEmployeeRegisterViewModelを取得する
-        viewModel = _empDataStore.Load(this);
+        viewModel = _deptDataStore.Load(this);
         if (viewModel == null)
         {
             // データが存在しない場合、入力画面にリダイレクト
             return RedirectToAction("Enter");
         }
         // EmployeeRegisterFormをドメインモデル:Employeeに変換する
-        var employee = _adapter.Restore(viewModel!);
+        var department = _adapter.Restore(viewModel!);
         // 新しい従業員を登録する
-        _departmentRegisterService.Register(employee);
+        _departmentRegisterService.Register(department);
         return View(viewModel);
     }
 
@@ -132,7 +132,7 @@ public class DepartmentRegisterController : Controller
     {
         _logger.LogInformation("[戻る]ボタンクリック:{0}", viewModel!.ToString());
         // EmployeeRegisterViewModelをシリアライズして、TempDataに保存する
-        _empDataStore.Save(this, viewModel);
+        _deptDataStore.Save(this, viewModel);
         // 入力画面を出力するアクションメソッドにリダイレクトする
         return RedirectToAction("Enter");
     }

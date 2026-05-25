@@ -22,4 +22,9 @@ public class EmployeeRegisterViewModelAdapter : IRestorer<Employee, EmployeeRegi
         var employee = new Employee(target.Name!, department);
         return employee;
     }
+
+    public static implicit operator EmployeeRegisterViewModelAdapter(DepartmentRegisterViewModelAdapter v)
+    {
+        throw new NotImplementedException();
+    }
 }

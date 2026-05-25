@@ -5,6 +5,8 @@ namespace Csharp_training_202605.Applications.Repositories;
 /// </summary>
 public interface IEmployeeRepository
 {
+
+     List<Department> FindAll();
     /// <summary>
     /// 従業員を永続化する
     /// </summary>
