@@ -19,15 +19,18 @@ public class EmployeeRepository : IEmployeeRepository
     /// </summary>
     private readonly EmployeeEntityAdapter _adapter;
     
+    private readonly DepartmentEntityAdapter _dptAdapter;
+
     /// <summary>
     /// コンストラクタ
     /// </summary>
     /// <param name="context"></param>
     /// <param name="adapter"></param>
-    public EmployeeRepository(AppDbContext context, EmployeeEntityAdapter adapter)
+    public EmployeeRepository(AppDbContext context, EmployeeEntityAdapter adapter,DepartmentEntityAdapter dptAdapter)
     {
         _context = context;
         _adapter = adapter;
+        _dptAdapter = dptAdapter;
     }
 
     /// <summary>
@@ -48,4 +51,42 @@ public class EmployeeRepository : IEmployeeRepository
                 "従業員の永続化ができませんでした。", e);
         }
     }
+
+    public Employee? FindById(int id)
+    {
+        try
+        {
+            var result = _context.Employees.FirstOrDefault(e => e.EmpId == id);
+            if (result == null)
+            {
+                return null;
+            }
+            return _adapter.Restore(result);
+        }
+        catch (Exception e)
+        {
+            throw new InternalException(
+                "指定された従業員Idの従業員を取得できませんでした。", e);
+        }
+    }
+
+     public List<Department> FindAll()
+    {
+        try
+        {
+            var entities = _context.Departments.ToList();
+            var results = new List<Department>();
+            foreach (var entity in entities)
+            {
+                results.Add(_dptAdapter.Restore(entity));
+            }   
+            return results;
+        }
+        catch (Exception e)
+        {
+            throw new InternalException(
+                "すべての部署を取得できませんでした。", e);
+        }
+    }
+
 }

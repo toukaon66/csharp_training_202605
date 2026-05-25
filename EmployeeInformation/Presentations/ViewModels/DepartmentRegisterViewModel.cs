@@ -11,6 +11,7 @@ public class DepartmentRegisterViewModel
     ///部署名
     /// </summary>
     [Display(Name = "部署名")]
+     [StringLength(20, ErrorMessage = "氏名は20文字以内で入力してください")]
     [Required(ErrorMessage = "{0}は入力必須です。")]
     public string? DeptName { get; set; } = string.Empty;
 
