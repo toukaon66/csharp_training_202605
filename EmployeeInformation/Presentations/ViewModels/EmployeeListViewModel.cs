@@ -8,5 +8,38 @@ namespace Csharp_training_202605.Presentations.ViewModels;
 /// </summary>
 public class EmployeeListViewModel
 {
+    [Display(Name = "社員ID")]
+    public int? Id { get; set; } = 0;
+    [Display(Name = "氏名")]
+    public string? Name { get; set; } = string.Empty;
+
+     [Display(Name = "所属部署")]
+    public int? Department { get; set; } = 0;
+
+
+    public void SetEmployees(List<Employee> employees)
+    {
+        // SelectListItemのリストを作成
+        var EmployeeList = new List<SelectListItem>();
+        foreach (var emp in employees)
+        {
+            if (emp.Id.HasValue)
+            {
+                var item = new SelectListItem();
+                item.Value = emp.Id.Value.ToString();
+                item.Text = string.IsNullOrEmpty(emp.Name) ? "(名称未設定)" : emp.Name;
+                EmployeeList.Add(item);
+            }
+        }
+        Employees = EmployeeList;
+    }
     
+
+    public List<SelectListItem>? Employees { get; set; } = null;
+
+    public override string ToString()
+    {
+        return $" Id={Id} , Name={Name} , Department={Department}";
+    }
 }
+
