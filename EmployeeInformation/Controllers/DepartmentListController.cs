@@ -9,25 +9,24 @@ namespace Csharp_training_202605.Presentations.Controllers;
 /// <summary>
 /// 従業員登録コントローラ
 /// </summary>
-[Route("DepartmentRegister")]
+[Route("DepartmentList")]
 public class DepartmentListController : Controller
 {
     /// <summary>
     /// ロガー
     /// </summary>
-    private readonly ILogger<DepartmentRegisterController> _logger;
+    private readonly ILogger<DepartmentListController> _logger;
     /// <summary>
     /// 従業員登録サービスインターフェイス
     /// </summary>
-    private readonly IDepartmentRegisterService _departmentListService;
+    private readonly IDepartmentListService _departmentListService;
     /// <summary>
     /// 従業員登録ViewModelをEmployeeに変換するアダプター
     /// </summary>
-    private readonly DepartmentRegisterViewModelAdapter _adapter;
+    private readonly DepartmentListViewModelAdapter _adapter;
     /// <summary>
     /// TempDataを通じて一時的にViewModelを保存・復元するためのクラス
     /// </summary>
-    private readonly TempDataStore<DepartmentRegisterViewModel> _deptDataStore;
 
     /// <summary>
     /// コンストラクタ
@@ -37,27 +36,29 @@ public class DepartmentListController : Controller
     /// <param name="employeeRegisterViewModelAdapter">従業員登録ViewModelをEmployeeに変換するアダプター</param>
     /// <param name="empDataStore">TempDataを通じて一時的にViewModelを保存・復元するためのクラス</param>
     public DepartmentListController(
-        ILogger<DepartmentRegisterController> logger,
-        IDepartmentRegisterService departmentRegisterService,
-        DepartmentRegisterViewModelAdapter departmentRegisterViewModelAdapter,
-        TempDataStore<DepartmentRegisterViewModel> deptDataStore)
+        ILogger<DepartmentListController> logger,
+        IDepartmentListService departmentListService,
+        DepartmentListViewModelAdapter departmentListViewModelAdapter)
     {
         _logger = logger;
-        _departmentListService = departmentRegisterService;
-        _adapter = departmentRegisterViewModelAdapter;
-        _deptDataStore = deptDataStore;
+        _departmentListService = departmentListService;
+        _adapter = departmentListViewModelAdapter;
+        
     }
+    [HttpGet("Enter")]
     public IActionResult Enter()
     {
-        EmployeeRegisterViewModel? viewModel = null;
-        if (viewModel == null)
+
+        var departments = _departmentListService.GetDepartments();
+        var results = new List<DepartmentListViewModel>();
+        //ドメインからビューモデルにアダプターで変換
+        foreach (var department in departments)
         {
-            // 従業員登録ViewModelを生成する
-            viewModel = new EmployeeRegisterViewModel();
+            results.Add(_adapter.Convert(department));
         }
-        PopulateDepartments(viewModel);
+        return View(results);
         // viewModelをviewに渡して画面表示する
-        return View(viewModel);
+
     }
 
 

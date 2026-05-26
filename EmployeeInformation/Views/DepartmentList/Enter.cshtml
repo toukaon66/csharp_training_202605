@@ -1,17 +1,23 @@
-<div class="container mt-4">
-    <div class="row justify-content-center">
-        <div class="col-md-4 col-sm-6"> 
-            @* 送信先はControllerのConfirm()、POSTは入力値を送信する*@
-            
-                
-                <div class="mb-3">
-                    <label asp-for="DeptId" class="form-label"></label>
-                    @*asp-itemsはSelectListItemのリストを受け取る*@
-                    <select asp-for="DeptId" asp-items="Model.Departments" class="form-control"></select> 
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary">完了</button>
-                </div>
-        </div>
-    </div>
-</div>
+@using Csharp_training_202605.Presentations.ViewModels
+
+@model List<DepartmentListViewModel>
+@{
+    ViewData["Title"] = "部署一覧"; // ページタイトルをViewDataに設定
+}
+<h2>@ViewData["Title"]</h2>
+<table class="table table-bordered"> <!-- Bootstrapのスタイルを適用した表 -->
+    <thead> <!-- 表のヘッダー -->
+        <tr> <!-- ヘッダー行 -->
+            <th>部署番号</th> 
+            <th>部署名</th> 
+        </tr>
+
+<tbody> <!-- 表の本体 -->
+    @foreach (var department in Model) // 受け取ったリストを1件ずつ処理
+    {
+        <tr> <!-- データ行 -->
+            <td>@department.DeptId</td>
+            <td>@department.DeptName</td>
+        </tr>
+    }
+</tbody>

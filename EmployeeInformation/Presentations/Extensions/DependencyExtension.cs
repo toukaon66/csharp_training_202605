@@ -38,7 +38,7 @@ public static class DependencyExtension
     /// </summary>
     /// <param name="configuration">アプリケーション環境</param>
     /// <param name="services">DIコンテナ</param>
-    private static void SettingEntityFrameworkCore(IConfiguration configuration,  IServiceCollection services)
+    private static void SettingEntityFrameworkCore(IConfiguration configuration, IServiceCollection services)
     {
         // 接続文字列(appsettings.json)から取得
         var connectionString = configuration.GetConnectionString("PostgreSqlConnection");
@@ -57,7 +57,7 @@ public static class DependencyExtension
         services.AddScoped<DepartmentEntityAdapter>();
         // ドメインモデル:従業員と従業員エンティティの相互変換インターフェイスの実装
         services.AddScoped<EmployeeEntityAdapter>();
-        
+
 
         // ドメインオブジェクト:部署のCRUD操作インターフェイス実装
         services.AddScoped<IDepartmentRepository, DepartmentRepository>();
@@ -74,7 +74,7 @@ public static class DependencyExtension
         // 従業員登録サービスインターフェイスの実装
         services.AddScoped<IEmployeeRegisterService, EmployeeRegisterService>();
         services.AddScoped<IDepartmentRegisterService, DepartmentRegisterService>();
-
+        services.AddScoped<IDepartmentListService, DepartmentListService>();
         //ここにリストも追加？
     }
 
@@ -88,18 +88,19 @@ public static class DependencyExtension
         services.AddScoped<EmployeeRegisterViewModelAdapter>();
         // services.AddScoped<EmployeeListViewModelAdapter>();
         services.AddScoped<DepartmentRegisterViewModelAdapter>();
+        services.AddScoped<DepartmentListViewModelAdapter>();
         // services.AddScoped<DepartmentListViewModelAdapter>();
         // TempDataへのEmployeeRegisterViewの保存・復元するためのクラス
         // コンストラクタを利用して明示的にDIコンテナにインスタンスを登録する
         services.AddScoped(
             provider =>
             new TempDataStore<EmployeeRegisterViewModel>("EmployeeRegisterViewModel")
-            
+
         );
 
-         services.AddScoped(
-            provider =>
-            new TempDataStore<DepartmentRegisterViewModel>("DepartmentRegisterViewModel")
-        );
+        services.AddScoped(
+           provider =>
+           new TempDataStore<DepartmentRegisterViewModel>("DepartmentRegisterViewModel")
+       );
     }
 }
