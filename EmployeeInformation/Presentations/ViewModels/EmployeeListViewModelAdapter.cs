@@ -29,7 +29,7 @@ public class EmployeeListViewModelAdapter : IRestorer<Department, DepartmentList
        var employeeListViewModel = new EmployeeListViewModel();
         int? no = employee.Id;
         string name =  employee.Name;
-        int dept_id = employee.Department;
+        var dept_id = employee.Department;
     //departmentListViewModelのプロパティに値をセットする
     employeeListViewModel.Id = no;
     employeeListViewModel.Name = name;

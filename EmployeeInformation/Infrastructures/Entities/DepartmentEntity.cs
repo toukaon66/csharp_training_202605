@@ -18,4 +18,8 @@ public class DepartmentEntity
     /// </summary> 
     [Column("name")]
     public string DeptName { get; set; } = string.Empty;
+    public override string? ToString()
+    {
+        return $"部署Id:{DeptId},部署名:{DeptName}";
+    }
 }
