@@ -63,4 +63,6 @@ public class DepartmentRegisterService : IDepartmentRegisterService
             throw;
         }
     }
+
+     
 }

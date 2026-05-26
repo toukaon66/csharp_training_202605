@@ -16,7 +16,7 @@ public class DepartmentListViewModel
     public void SetDepartments(List<Department> departments)
     {
         // SelectListItemのリストを作成
-        var selectItems = new List<SelectListItem>();
+        var DepartmentsList = new List<SelectListItem>();
         foreach (var dept in departments)
         {
             if (dept.Id.HasValue)
@@ -24,10 +24,10 @@ public class DepartmentListViewModel
                 var item = new SelectListItem();
                 item.Value = dept.Id.Value.ToString();
                 item.Text = string.IsNullOrEmpty(dept.Name) ? "(名称未設定)" : dept.Name;
-                selectItems.Add(item);
+                DepartmentsList.Add(item);
             }
         }
-        Departments = selectItems;
+        Departments = DepartmentsList;
     }
 
     public List<SelectListItem>? Departments { get; set; } = null;
