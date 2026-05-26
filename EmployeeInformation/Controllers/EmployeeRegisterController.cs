@@ -1,16 +1,15 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Csharp_training_202605.Models;
-using Microsoft.Extensions.Logging;
-using Csharp_training_202605.Presentations.ViewModels;
 using Csharp_training_202605.Applications.Services;
-using Csharp_training_202605.Presentations.Controllers;
-
-namespace Csharp_training_202605.Controllers;
-
+using Csharp_training_202605.Presentations.ViewModels;
+using Microsoft.Extensions.Logging;
+namespace Csharp_training_202605.Presentations.Controllers;
+/// <summary>
+/// 従業員登録コントローラ
+/// </summary>
+[Route("EmployeeRegister")]
 public class EmployeeRegisterController : Controller
 {
-   /// <summary>
+    /// <summary>
     /// ロガー
     /// </summary>
     private readonly ILogger<EmployeeRegisterController> _logger;
@@ -25,7 +24,7 @@ public class EmployeeRegisterController : Controller
     /// <summary>
     /// TempDataを通じて一時的にViewModelを保存・復元するためのクラス
     /// </summary>
-    private readonly  TempDataStore<EmployeeRegisterViewModel> _deptDataStore;
+    private readonly  TempDataStore<EmployeeRegisterViewModel> _empDataStore;
 
     /// <summary>
     /// コンストラクタ
@@ -37,38 +36,122 @@ public class EmployeeRegisterController : Controller
     public EmployeeRegisterController(
         ILogger<EmployeeRegisterController> logger,
         IEmployeeRegisterService employeeRegisterService,
-        DepartmentRegisterViewModelAdapter employeeRegisterViewModelAdapter,
+        EmployeeRegisterViewModelAdapter employeeRegisterViewModelAdapter,
         TempDataStore<EmployeeRegisterViewModel> empDataStore)
     {
         _logger = logger;
         _employeeRegisterService = employeeRegisterService;
         _adapter = employeeRegisterViewModelAdapter;
-        _deptDataStore = empDataStore;
+        _empDataStore = empDataStore;
     }
 
+    /// <summary>
+    /// 従業登録(入力)画面表示 アクションメソッド
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet("Enter")]
     public IActionResult Enter()
     {
-        return View();
+        EmployeeRegisterViewModel? viewModel = null;
+        // [戻る]ボタンへの対応
+        // TempDataからEmployeeRegisterViewModelを取得する
+        viewModel = _empDataStore.Load(this);
+        if (viewModel   == null)
+        {
+            // 従業員登録ViewModelを生成する
+            viewModel = new EmployeeRegisterViewModel();
+        }
+        // 部署一覧を取得してViewModelに設定する(SelectListItem形式)
+        PopulateDepartments(viewModel);
+        // viewModelをviewに渡して画面表示する
+        return View(viewModel);
     }
 
+    /// <summary>
+    /// 入力画面の[完了]ボタンクリックアクションメソッド
+    /// </summary>
+    /// <param name="viewModel"></param>
+    /// <returns></returns>
+    [HttpPost("Confirm")]
     public IActionResult Confirm(EmployeeRegisterViewModel viewModel)
     {
-        if(!ModelState.IsValid)
+        // バリデーションチェック
+        if (!ModelState.IsValid) // バリデーションエラーあり
         {
-            return View("Enter",viewModel);
+            // 部署一覧を取得してViewModelに設定する(SelectListItem形式)
+            PopulateDepartments(viewModel);
+            // 入力画面の表示
+            return View("Enter", viewModel);
         }
-        return View();
+        // 選択された部署のIdで部署データを取得する
+        var department = _employeeRegisterService.GetById(viewModel.DeptId ?? 0);
+        _logger.LogInformation($"部署Id:{viewModel.DeptId ?? 0}の部署を取得する");
+        // ViewModelに部署名を設定する
+        viewModel.DeptName = department.Name;
+        // 確認画面を表示する
+        return View(viewModel);
     }
+
+    /// <summary>
+    /// 確認画面の[登録]ボタンクリックアクションメソッド
+    /// </summary>
+    /// <param name="form"></param>
+    /// <returns></returns>
+    [HttpPost("Regiter")]
+    public IActionResult Register(EmployeeRegisterViewModel viewModel)
+    {
+        // EmployeeRegisterViewModelをシリアライズして、TempDataに保存する
+        _empDataStore.Save(this, viewModel);
+        // 登録処理GETアクションメソッドにリダイレクトする
+        return RedirectToAction("Complete");
+    }
+
+    /// <summary>
+    /// アクションメソッド:Regiter()のリダイレクト先
+    /// PRGパターン
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet("Complete")]
     public IActionResult Complete()
     {
-        return View();
+        EmployeeRegisterViewModel? viewModel = null;
+        // TempDataからEmployeeRegisterViewModelを取得する
+        viewModel = _empDataStore.Load(this);
+        if (viewModel == null)
+        {
+            // データが存在しない場合、入力画面にリダイレクト
+            return RedirectToAction("Enter");
+        }
+        // EmployeeRegisterFormをドメインモデル:Employeeに変換する
+        var employee = _adapter.Restore(viewModel!);
+        // 新しい従業員を登録する
+        _employeeRegisterService.Register(employee);
+        return View(viewModel);
     }
 
-
-    
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
+    /// <summary>
+    /// 確認画面の[戻る]ボタンクリックアクションメソッド
+    /// </summary>
+    /// <returns></returns> 
+    [HttpPost("Back")]
+    public IActionResult Back(EmployeeRegisterViewModel viewModel)
     {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        _logger.LogInformation("[戻る]ボタンクリック:{0}", viewModel!.ToString());
+        // EmployeeRegisterViewModelをシリアライズして、TempDataに保存する
+        _empDataStore.Save(this, viewModel);
+        // 入力画面を出力するアクションメソッドにリダイレクトする
+        return RedirectToAction("Enter");
+    }
+
+    /// <summary>
+    /// 部署一覧を取得してViewModelに設定する(SelectListItem形式)
+    /// </summary>
+    private void PopulateDepartments(EmployeeRegisterViewModel viewModel)
+    {
+        // 従業員登録サービスから部署一覧を取得する
+        var departments = _employeeRegisterService.GetDepartments();
+        // 部署一覧をEmployeeRegisterViewModelに登録する
+        viewModel.SetDepartments(departments);
+        _logger.LogInformation("部署リストを設定");
     }
 }
