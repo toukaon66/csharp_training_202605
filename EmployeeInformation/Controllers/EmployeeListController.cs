@@ -9,7 +9,7 @@ namespace Csharp_training_202605.Presentations.Controllers;
 /// <summary>
 /// 従業員登録コントローラ
 /// </summary>
-[Route("DepartmentList")]
+[Route("EmployeeList")]
 public class EmployeeListController : Controller
 {
     /// <summary>
@@ -20,6 +20,7 @@ public class EmployeeListController : Controller
     /// 従業員登録サービスインターフェイス
     /// </summary>
     private readonly IEmployeeListService _employeeListService;
+
     /// <summary>
     /// 従業員登録ViewModelをEmployeeに変換するアダプター
     /// </summary>
@@ -36,25 +37,26 @@ public class EmployeeListController : Controller
     /// <param name="employeeRegisterViewModelAdapter">従業員登録ViewModelをEmployeeに変換するアダプター</param>
     /// <param name="empDataStore">TempDataを通じて一時的にViewModelを保存・復元するためのクラス</param>
     public EmployeeListController(
-        ILogger<DepartmentListController> logger,
-        IDepartmentListService employeeListService,
-        DepartmentListViewModelAdapter departmentListViewModelAdapter)
+        ILogger<EmployeeListController> logger,
+        IEmployeeListService employeeListService,
+        EmployeeListViewModelAdapter employeeListViewModelAdapter)
     {
         _logger = logger;
         _employeeListService = employeeListService;
-        _adapter = departmentListViewModelAdapter;
+        _adapter = employeeListViewModelAdapter;
         
     }
     [HttpGet("Enter")]
     public IActionResult Enter()
     {
 
-        var departments = _EmployeeListService.GetDepartments();
-        var results = new List<DepartmentListViewModel>();
+        var departments = _employeeListService.GetDepartments();
+        var employees = _employeeListService.GetEmployees();
+        var results = new List<EmployeeListViewModel>();
         //ドメインからビューモデルにアダプターで変換
-        foreach (var department in departments)
+        foreach (var employee in employees)
         {
-            results.Add(_adapter.Convert(department));
+            results.Add(_adapter.Convert(employee,employee.Department));
         }
         return View(results);
         // viewModelをviewに渡して画面表示する
@@ -68,11 +70,12 @@ public class EmployeeListController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
-    private void PopulateDepartments(EmployeeRegisterViewModel viewModel)
+    private void PopulateDepartments(EmployeeListViewModel viewModel)
     {
         // 従業員登録サービスから部署一覧を取得する
-        var departments = _departmentListService.GetDepartments();
+        var departments = _employeeListService.GetDepartments();
+        var employees = _employeeListService.GetEmployees();
         // 部署一覧をEmployeeRegisterViewModelに登録する
-        viewModel.SetDepartments(departments);
+        viewModel.SetEmployees(employees);
     }
 }

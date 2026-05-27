@@ -4,6 +4,7 @@ using Csharp_training_202605.Applications.Repositories;
 using Csharp_training_202605.Infrastructures.Adapters;
 using Csharp_training_202605.Exceptions;
 using System;
+using Microsoft.EntityFrameworkCore;
 namespace Csharp_training_202605.Infrastructures.Repositories;
 /// <summary>
 /// ドメインオブジェクト:従業員のCRUD操作インターフェイスの実装
@@ -88,5 +89,23 @@ public class EmployeeRepository : IEmployeeRepository
                 "すべての部署を取得できませんでした。", e);
         }
     }
+public List<Employee> FindAllEmp()
+    {
+        try
+        {
+            var entities = _context.Employees.Include(i =>i.DeptId).ToList();
+            var results = new List<Employee>();
+            foreach (var entity in entities)
+            {
+                results.Add(_adapter.Restore(entity));
 
+            }   
+            return results;
+        }
+        catch (Exception e)
+        {
+            throw new InternalException(
+                "すべての従業員を取得できませんでした。", e);
+        }
+    }
 }

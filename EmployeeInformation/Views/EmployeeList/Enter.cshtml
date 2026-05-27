@@ -1,8 +1,28 @@
-@{
-    ViewData["Title"] = "Home Page";
-}
+@using Csharp_training_202605.Presentations.ViewModels
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@model List<EmployeeListViewModel>
+>
+@{
+    ViewData["Title"] = "社員一覧"; // ページタイトルをViewDataに設定
+}
+<h2>@ViewData["Title"]</h2>
+<table class="table table-bordered"> <!-- Bootstrapのスタイルを適用した表 -->
+    <thead> <!-- 表のヘッダー -->
+        <tr> <!-- ヘッダー行 -->
+            <th>社員番号</th> 
+            <th>氏名</th> 
+            <th>部署番号</th> 
+            <th>所属部署</th> 
+        </tr>
+
+<tbody> <!-- 表の本体 -->
+    @foreach (var employee in Model) // 受け取ったリストを1件ずつ処理
+    {
+        <tr> <!-- データ行 -->
+            <td>@employee.Id</td>
+            <td>@employee.Name</td>
+            @* <td>@employee.DeptId</td>
+            <td>@employee.Department</td> *@
+        </tr>
+    }
+</tbody>

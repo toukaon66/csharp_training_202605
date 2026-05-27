@@ -28,7 +28,7 @@ public class DepartmentListViewModelAdapter : IRestorer<Department, DepartmentLi
         //リターン用の変数
        var departmentListViewModel = new DepartmentListViewModel();
         int? no = department.Id;
-        string name =  department.Name;
+        string? name =  department.Name;
     //departmentListViewModelのプロパティに値をセットする
     departmentListViewModel.DeptId = no;
     departmentListViewModel.DeptName = name;

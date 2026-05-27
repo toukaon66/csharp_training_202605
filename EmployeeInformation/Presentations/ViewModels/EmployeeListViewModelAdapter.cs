@@ -2,7 +2,7 @@ using Csharp_training_202605.Applications.Adapters;
 using Csharp_training_202605.Applications.Domains;
 namespace Csharp_training_202605.Presentations.ViewModels;
 
-public class EmployeeListViewModelAdapter : IRestorer<Department, DepartmentListViewModel> ,IConverter<Employee, EmployeeListViewModel>
+public class EmployeeListViewModelAdapter : IRestorer<Department, DepartmentListViewModel> 
 {
     /// <summary>
     /// EmployeeRegisterViewModelをドメインオブジェクト:Employeeに変換する
@@ -23,19 +23,21 @@ public class EmployeeListViewModelAdapter : IRestorer<Department, DepartmentList
     }
 
 
-    public EmployeeListViewModel Convert(Employee employee)
+    public EmployeeListViewModel Convert(Employee employee,Department department)
     {
         //リターン用の変数
        var employeeListViewModel = new EmployeeListViewModel();
         int? no = employee.Id;
         string name =  employee.Name;
-        var dept_id = employee.Department;
+        Department? dept_id = employee.Department;
+        string? dname = department.Name;
     //departmentListViewModelのプロパティに値をセットする
     employeeListViewModel.Id = no;
     employeeListViewModel.Name = name;
-    employeeListViewModel.Department = dept_id;
+    employeeListViewModel.DeptId = dept_id;
+    employeeListViewModel.Department = dname;
        return employeeListViewModel;
     }
 
-    
+   
 }

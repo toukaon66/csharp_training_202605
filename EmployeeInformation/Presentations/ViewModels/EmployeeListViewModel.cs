@@ -13,8 +13,11 @@ public class EmployeeListViewModel
     [Display(Name = "氏名")]
     public string? Name { get; set; } = string.Empty;
 
+     [Display(Name = "部署番号")]
+    public Department? DeptId { get; set; } 
+
      [Display(Name = "所属部署")]
-    public int? Department { get; set; } = 0;
+    public string? Department { get; set; } = string.Empty;
 
 
     public void SetEmployees(List<Employee> employees)

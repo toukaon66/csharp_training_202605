@@ -7,6 +7,7 @@ public interface IEmployeeRepository
 {
     
     List<Department> FindAll();
+    List<Employee> FindAllEmp();
     /// <summary>
     /// 従業員を永続化する
     /// </summary>

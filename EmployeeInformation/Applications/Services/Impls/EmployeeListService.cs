@@ -18,7 +18,7 @@ public class EmployeeListService : IEmployeeListService
     /// ドメインオブジェクト:部署のCRUD操作インターフェイス
     /// </summary>
     private readonly IDepartmentRepository _departmentRepository;
-
+    private readonly IEmployeeRepository  _employeeRepository;
     /// <summary>
     /// コンストラクタ
     /// </summary>
@@ -26,10 +26,13 @@ public class EmployeeListService : IEmployeeListService
     /// <param name="departmentRepository">部署のCRUD操作インターフェイス</param>
     public EmployeeListService(
         AppDbContext context,
-        IDepartmentRepository departmentRepository)
+        IDepartmentRepository departmentRepository,
+        IEmployeeRepository employeeRepository
+        )
     {
         _context = context;
         _departmentRepository = departmentRepository;
+        _employeeRepository = employeeRepository;
     }
 
     /// <summary>
@@ -43,6 +46,6 @@ public class EmployeeListService : IEmployeeListService
 
     public List<Employee> GetEmployees()
     {
-        throw new NotImplementedException();
+        return _employeeRepository.FindAllEmp();
     }
 }

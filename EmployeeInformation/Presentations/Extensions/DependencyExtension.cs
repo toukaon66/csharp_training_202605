@@ -75,6 +75,7 @@ public static class DependencyExtension
         services.AddScoped<IEmployeeRegisterService, EmployeeRegisterService>();
         services.AddScoped<IDepartmentRegisterService, DepartmentRegisterService>();
         services.AddScoped<IDepartmentListService, DepartmentListService>();
+        services.AddScoped<IEmployeeListService, EmployeeListService>();
         //ここにリストも追加？
     }
 
@@ -89,6 +90,7 @@ public static class DependencyExtension
         // services.AddScoped<EmployeeListViewModelAdapter>();
         services.AddScoped<DepartmentRegisterViewModelAdapter>();
         services.AddScoped<DepartmentListViewModelAdapter>();
+        services.AddScoped<EmployeeListViewModelAdapter>();
         // services.AddScoped<DepartmentListViewModelAdapter>();
         // TempDataへのEmployeeRegisterViewの保存・復元するためのクラス
         // コンストラクタを利用して明示的にDIコンテナにインスタンスを登録する
