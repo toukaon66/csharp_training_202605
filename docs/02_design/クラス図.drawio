@@ -1,9 +1,18 @@
 <mxfile host="65bd71144e">
     <diagram name="ページ-1" id="61RVPWnuirh5MR-BbGoL">
-        <mxGraphModel dx="2709" dy="558" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="3704" dy="1937" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
+                <mxCell id="60" value="" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="-30" width="520" height="1440" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-390" y="-30" width="480" height="1440" as="geometry"/>
+                </mxCell>
+                <mxCell id="58" value="" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-1467.5" y="-30" width="1067.5" height="1440" as="geometry"/>
+                </mxCell>
                 <mxCell id="2" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;DepartmentListController&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;-ILogger&amp;lt;DepartmentListController&amp;gt;&lt;br&gt;-IDepartmentListService&lt;br&gt;-DepartmentListViewModelAdapter&lt;br&gt;-TempDataStore&amp;lt;EDepartmentListViewModel&amp;gt;&lt;br&gt;+DepartmentListController&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+Enter()&lt;br&gt;+Error()&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;labelBorderColor=default;" parent="1" vertex="1">
                     <mxGeometry x="-1110" y="40" width="320" height="150" as="geometry"/>
                 </mxCell>
@@ -73,7 +82,7 @@
                     <mxGeometry x="400" y="710" width="180" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="27" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;AppDbContext&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+DbSet&amp;lt;EmployeeEntity&amp;gt;&lt;br&gt;+DbSet&amp;lt;DepartmentEntity&amp;gt;&lt;br&gt;+AppDbContext(DbContextOptions&amp;lt;AppDbContext&amp;gt; options) : base(options) { }&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;labelBorderColor=default;" parent="1" vertex="1">
-                    <mxGeometry x="220" y="40" width="320" height="180" as="geometry"/>
+                    <mxGeometry x="190" y="120" width="320" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="28" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;DepartmentEntity&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+DeptId:int&lt;br&gt;+DeptName:string&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;labelBorderColor=default;" parent="1" vertex="1">
                     <mxGeometry x="170" y="1040" width="180" height="180" as="geometry"/>
@@ -112,34 +121,40 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="40" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;DependencyExtension&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+SettingDependencyInjection:void&lt;br&gt;-SettingEntityFrameworkCore:void&lt;br&gt;-SettingInfrastructures:void&lt;br&gt;-SettingApplications:void&lt;br&gt;-SettingPresentations:void&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;labelBorderColor=default;" parent="1" vertex="1">
-                    <mxGeometry x="-1090" y="1520" width="230" height="180" as="geometry"/>
+                    <mxGeometry x="-1270" y="1180" width="230" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="41" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;TempDataStore&amp;lt;T&amp;gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;-_key:string&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+TempDataStore(string key)&lt;br&gt;+Load(Controller controller)&lt;br&gt;+Save(Controller controller, T model)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;labelBorderColor=default;" parent="1" vertex="1">
-                    <mxGeometry x="-705" y="1360" width="230" height="180" as="geometry"/>
+                    <mxGeometry x="-850" y="1180" width="230" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="42" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;InternalExceptionLoggingMiddleware&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;-RequestDelegate _next&lt;br&gt;-ILogger&amp;lt;InternalExceptionLoggingMiddleware&amp;gt; _logger&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+InternalExceptionLoggingMiddleware&lt;br&gt;+InvokeAsync(HttpContext context)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;labelBorderColor=default;" parent="1" vertex="1">
-                    <mxGeometry x="-690" y="1510" width="290" height="180" as="geometry"/>
+                    <mxGeometry x="-1090" y="940" width="290" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="48" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.539;entryY=1.009;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="16" target="23" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="49" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;DepartmentListViewModel&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+DeptName:string&lt;br&gt;+DeptId:int&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+SetDepartments(departments : List&amp;lt;Department&amp;gt;)&lt;br&gt;+ToString()&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;labelBorderColor=default;" vertex="1" parent="1">
-                    <mxGeometry x="-800" y="470" width="310" height="180" as="geometry"/>
+                <mxCell id="49" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;DepartmentListViewModel&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+DeptName:string&lt;br&gt;+DeptId:int&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+SetDepartments&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;labelBorderColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="-1133.5" y="710" width="217" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="50" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;DepartmentListViewModelAdapter&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+Restore(DepartmentListViewModel target)&lt;br&gt;+DepartmentListViewModelAdapter&lt;br&gt;+Convert(Department department)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;labelBorderColor=default;" vertex="1" parent="1">
-                    <mxGeometry x="-1090" y="470" width="250" height="180" as="geometry"/>
+                    <mxGeometry x="-1150" y="480" width="250" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="51" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;DepartmentRegisterViewModel&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;+DeptName:string&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+ToString()&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;labelBorderColor=default;" vertex="1" parent="1">
-                    <mxGeometry x="-740" y="690" width="180" height="180" as="geometry"/>
+                    <mxGeometry x="-1395" y="710" width="180" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="52" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;DepartmentRegisterViewModelAdapter&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+Restore&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;labelBorderColor=default;" vertex="1" parent="1">
-                    <mxGeometry x="-1090" y="690" width="250" height="180" as="geometry"/>
+                    <mxGeometry x="-1430" y="480" width="250" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="53" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;EmployeeRegisterViewModel&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+Name:string&lt;br&gt;+DeptId:int&lt;br&gt;+DeptName:string&lt;br&gt;+Departments:List&amp;lt;SelectListItem&amp;gt;?&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+SetDepartments&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;labelBorderColor=default;" vertex="1" parent="1">
-                    <mxGeometry x="-1073.5" y="1120" width="217" height="180" as="geometry"/>
+                    <mxGeometry x="-860" y="710" width="217" height="180" as="geometry"/>
                 </mxCell>
-                <mxCell id="54" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;+SetDepartments&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+Restore&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;" vertex="1" parent="1">
-                    <mxGeometry x="-705" y="1110" width="180" height="180" as="geometry"/>
+                <mxCell id="54" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;EmployeeRegisterViewModelAdapter&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;span style=&quot;color: rgb(63, 63, 63); font-weight: 700;&quot;&gt;+SetDepartments&lt;/span&gt;&lt;br&gt;+Restore&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;labelBorderColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="-871.5" y="480" width="240" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;EmployeeListViewModel&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;labelBorderColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="-600" y="710" width="180" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;EmployeeListViewModelAdapter&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;labelBorderColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="-610" y="480" width="200" height="180" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
