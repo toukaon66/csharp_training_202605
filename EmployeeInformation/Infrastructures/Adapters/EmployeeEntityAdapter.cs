@@ -39,8 +39,8 @@ IConverter<Employee, EmployeeEntity>, IRestorer<Employee, EmployeeEntity>
     {
         var entity = target.Department;
         var dept = new Department(
-            entity.DeptId,
-            entity.DeptName
+            entity?.DeptId,
+            entity?.DeptName
         );
         var employee = new Employee(
             target.EmpId,

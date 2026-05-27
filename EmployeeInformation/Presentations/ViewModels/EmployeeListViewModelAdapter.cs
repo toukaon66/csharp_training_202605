@@ -31,7 +31,7 @@ public class EmployeeListViewModelAdapter : IRestorer<Department, DepartmentList
         int? no = employee.Id;
         string name = employee.Name;
         Department? department = employee.Department;
-        string? dname = department.Name;
+        string? dname = department?.Name;
         //departmentListViewModelのプロパティに値をセットする
         employeeListViewModel.Id = no;
         employeeListViewModel.Name = name;
