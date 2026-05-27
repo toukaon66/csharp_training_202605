@@ -37,10 +37,17 @@ IConverter<Employee, EmployeeEntity>, IRestorer<Employee, EmployeeEntity>
     /// <returns>ドメインオブジェクト:Employee</returns>
     public Employee Restore(EmployeeEntity target)
     {
+        var entity = target.Department;
+        var dept = new Department(
+            entity.DeptId,
+            entity.DeptName
+        );
         var employee = new Employee(
             target.EmpId,
             target.EmpName,
-            null
+            // new Department(target.Department.DeptId,target.Department.DeptName)
+            dept
+    
         );
         return employee;
     }

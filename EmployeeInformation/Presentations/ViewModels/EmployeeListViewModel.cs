@@ -17,7 +17,7 @@ public class EmployeeListViewModel
     public Department? DeptId { get; set; } 
 
      [Display(Name = "所属部署")]
-    public string? Department { get; set; } = string.Empty;
+    public string? DeptName { get; set; } = string.Empty;
 
 
     public void SetEmployees(List<Employee> employees)
@@ -42,7 +42,7 @@ public class EmployeeListViewModel
 
     public override string ToString()
     {
-        return $" Id={Id} , Name={Name} , Department={Department}";
+        return $" Id={Id} , Name={Name} , Department={DeptName}";
     }
 }
 

@@ -11,7 +11,6 @@
         <tr> <!-- ヘッダー行 -->
             <th>社員番号</th> 
             <th>氏名</th> 
-            <th>部署番号</th> 
             <th>所属部署</th> 
         </tr>
 
@@ -21,8 +20,7 @@
         <tr> <!-- データ行 -->
             <td>@employee.Id</td>
             <td>@employee.Name</td>
-            @* <td>@employee.DeptId</td>
-            <td>@employee.Department</td> *@
+            <td>@employee.DeptName</td>
         </tr>
     }
 </tbody>

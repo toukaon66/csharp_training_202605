@@ -56,7 +56,7 @@ public class EmployeeListController : Controller
         foreach (var employee in employees)
         {
             
-            results.Add(_adapter.Convert(employee,employee.Department!));
+            results.Add(_adapter.Convert(employee));
         }
         return View(results);
         // viewModelをviewに渡して画面表示する
