@@ -12,4 +12,6 @@ public interface IEmployeeListService
     /// <returns></returns>
     List<Department> GetDepartments();
     List<Employee> GetEmployees();
+
+    Department GetById(int id);
 }

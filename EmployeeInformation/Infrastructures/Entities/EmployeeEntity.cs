@@ -23,4 +23,9 @@ public class EmployeeEntity
     /// </summary>
     [Column("dept_id")]
     public int? DeptId { get; set; }
+
+    [ForeignKey("DeptId")]
+    public DepartmentEntity? Department { get; set; }
+
+    
 }

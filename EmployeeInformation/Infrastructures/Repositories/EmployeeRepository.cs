@@ -92,8 +92,8 @@ public class EmployeeRepository : IEmployeeRepository
 public List<Employee> FindAllEmp()
     {
         try
-        {
-            var entities = _context.Employees.Include(i =>i.DeptId).ToList();
+        { 
+            var entities = _context.Employees.Include(i =>i.Department).ToList();
             var results = new List<Employee>();
             foreach (var entity in entities)
             {

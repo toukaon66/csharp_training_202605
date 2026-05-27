@@ -50,13 +50,13 @@ public class EmployeeListController : Controller
     public IActionResult Enter()
     {
 
-        var departments = _employeeListService.GetDepartments();
         var employees = _employeeListService.GetEmployees();
         var results = new List<EmployeeListViewModel>();
         //ドメインからビューモデルにアダプターで変換
         foreach (var employee in employees)
         {
-            results.Add(_adapter.Convert(employee,employee.Department));
+            
+            results.Add(_adapter.Convert(employee,employee.Department!));
         }
         return View(results);
         // viewModelをviewに渡して画面表示する

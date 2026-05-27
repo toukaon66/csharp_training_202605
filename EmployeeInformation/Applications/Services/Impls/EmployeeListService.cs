@@ -48,4 +48,15 @@ public class EmployeeListService : IEmployeeListService
     {
         return _employeeRepository.FindAllEmp();
     }
+
+     public Department GetById(int id)
+    {
+        var result = _departmentRepository.FindById(id)!;
+        if (result == null)
+        {
+            throw new NotFoundException($"部署Id{id}に該当する部署は存在しません");
+        }
+        return result;
+    }
+
 }
