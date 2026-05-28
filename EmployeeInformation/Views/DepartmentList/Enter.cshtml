@@ -8,16 +8,26 @@
 <table class="table table-bordered"> <!-- Bootstrapのスタイルを適用した表 -->
     <thead> <!-- 表のヘッダー -->
         <tr> <!-- ヘッダー行 -->
-            <th>部署番号</th> 
-            <th>部署名</th> 
+            <th>部署番号</th>
+            <th>部署名</th>
         </tr>
 
-<tbody> <!-- 表の本体 -->
-    @foreach (var department in Model) // 受け取ったリストを1件ずつ処理
-    {
-        <tr> <!-- データ行 -->
-            <td>@department.DeptId</td>
-            <td>@department.DeptName</td>
-        </tr>
-    }
-</tbody>
+        <tbody> <!-- 表の本体 -->
+            @foreach (var department in Model) // 受け取ったリストを1件ずつ処理
+            {
+                <tr> <!-- データ行 -->
+                    <td>@department.DeptId</td>
+                    <td>@department.DeptName</td>
+                </tr>
+            }
+        </tbody>
+    </thead>
+</table>
+<div class="text-center mt-4">
+    <a asp-action="Enter" asp-controller="DepartmentRegister" class="btn btn-primary mt-3">
+        部署を登録する
+    </a>
+    <a asp-action="Index" asp-controller="Home" class="btn btn-secondary mt-3">
+        メニューへ
+    </a>
+</div>

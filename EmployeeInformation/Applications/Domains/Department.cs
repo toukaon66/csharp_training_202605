@@ -47,6 +47,8 @@ public class Department
                 throw new DomainException("部署名は必須です");
             if (name.Length > MaxLength)
                 throw new DomainException($"部署名は{MaxLength}文字以内で入力してください");
+            // if()
+            // throw new DomainException("その部署は既に存在します");
         }
     }
 

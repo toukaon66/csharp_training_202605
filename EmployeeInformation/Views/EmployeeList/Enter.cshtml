@@ -1,7 +1,6 @@
 @using Csharp_training_202605.Presentations.ViewModels
 
 @model List<EmployeeListViewModel>
->
 @{
     ViewData["Title"] = "社員一覧"; // ページタイトルをViewDataに設定
 }
@@ -23,4 +22,15 @@
             <td>@employee.DeptName</td>
         </tr>
     }
+    </thead>
 </tbody>
+</table>
+
+<div class="text-center mt-4">
+    <a asp-action="Enter" asp-controller="EmployeeRegister" class="btn btn-primary mt-3">
+        社員を登録する
+    </a>
+    <a asp-action="Index" asp-controller="Home" class="btn btn-secondary mt-3">
+        メニューへ
+    </a><br />
+</div>
